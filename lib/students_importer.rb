@@ -5,9 +5,9 @@ module StudentsImporter
     field_names = nil
     Student.transaction do
       File.open(filename).each do |line|
-        data = line.chomp.split(',')
+        data = line.chomp.split(',')    #array of strings
         if field_names.nil?
-          field_names = data
+          field_names = data      #headers becoming field_names (column names)
         else
           attribute_hash = Hash[field_names.zip(data)]
           student = Student.create!(attribute_hash)
