@@ -10,6 +10,11 @@ class Student < ActiveRecord::Base
   validates :phone, :format => {  :with => /^(?:\+?1\s*(?:[.-]\s*)?)?(?:\(\s*([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9])\s*\)|([2-9]1[02-9]|[2-9][02-8]1|[2-9][02-8][02-9]))\s*(?:[.-]\s*)?([2-9]1[02-9]|[2-9][02-9]1|[2-9][02-9]{2})\s*(?:[.-]\s*)?([0-9]{4})(?:\s*(?:#|x\.?|ext\.?|extension)\s*(\d+))?$/,
                                   :message => "Please enter a valid 10-digit phone number."}
 
+
+  # def name
+  #   "#{first_name} #{last_name}"
+  # end
+
   def age
     now = Date.today
     if now.month > birthday.month
